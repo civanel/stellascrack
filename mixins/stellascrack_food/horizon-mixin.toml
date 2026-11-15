@@ -1,0 +1,19 @@
+[mod]
+id = "stellascrack_food"
+version = "0.1.0"
+priority = 100
+
+[compatibility]
+horizon_revision = "ba6344a59cb9e755b730dcf02285fc0d33b97d3c"
+
+[[injection]]
+id = "right-click-block"
+kind = "HEAD"
+hook = "right_click_block"
+hook_version = 1
+helper = "runtime.rs"
+bindings = [
+    { name = "pos", ty = "[i32;3]", value = "pos" },
+    { name = "face", ty = "[i32;3]", value = "face" },
+    { name = "canceled", ty = "&mut bool", value = "canceled" }
+]
