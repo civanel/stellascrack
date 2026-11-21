@@ -1,0 +1,26 @@
+{
+  "root": {
+    "parent": null,
+    "criteria": {
+      "first_cooking": {
+        "trigger": "minecraft:inventory_changed",
+        "conditions": {
+          "items": ["stellascrack:magic_oven"]
+        },
+        "rewards": {
+          "experience": 0.5
+        }
+      },
+      "first_food_eating": {
+        "trigger": "minecraft:consume_item",
+        "conditions": {
+          "items": ["stellascrack:strawberry_pie", "stellascrack:sage_meat", "stellascrack:crystal_soup"]
+        },
+        "rewards": {
+          "experience": 1.0,
+          "function": "stellascrack:food_master"
+        }
+      }
+    }
+  }
+}

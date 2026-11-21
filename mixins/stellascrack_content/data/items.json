@@ -1,0 +1,52 @@
+{
+  "items": {
+    "cutter_board": {
+      "name": "Magic Cutting Board",
+      "description": "A magical cutting board that can prepare special ingredients",
+      "group": "Blocks & Items",
+      "category": "BLOCKS"
+    },
+    "silver_cutting_board": {
+      "name": "Silver Magic Cutting Board ✨",
+      "description": "Upgraded version with sparkle effects",
+      "group": "Blocks & Items",
+      "category": "BLOCKS"
+    },
+    "crystal_pot_deluxe": {
+      "name": "Crystal Pot Deluxe ✨",
+      "description": "A luxurious crystal cooking pot",
+      "group": "Blocks & Items",
+      "category": "BLOCKS"
+    },
+    "magic_oven": {
+      "name": "Magic Elixir Oven ✨",
+      "description": "Creates magical elixirs with special effects",
+      "group": "Blocks & Items",
+      "category": "BLOCKS"
+    },
+    "strawberry_pie": {
+      "name": "Magical Strawberry Pie ✡🍰",
+      "description": "Restores 3 hunger points (+25% saturation). Effects: Speed III + Jump Boost II for 3 minutes. Spawns red sparkles when eaten!",
+      "group": "Blocks & Items",
+      "category": "FOODS"
+    },
+    "sage_meat": {
+      "name": "Sage Wisdom Meat ✡🍖",
+      "description": "Restores 4 hunger points (+20% saturation). Effects: Luck II + Haste I for 3 minutes. Mining speed +50%",
+      "group": "Blocks & Items",
+      "category": "FOODS"
+    },
+    "crystal_soup": {
+      "name": "Crystal Healing Soup ✡🍲",
+      "description": "Restores 6 hunger points (max saturation). Effects: Regeneration + Strength for 3 minutes",
+      "group": "Blocks & Items",
+      "category": "FOODS"
+    },
+    "silver_upgrade": {
+      "name": "Silver Board Upgrade ✡",
+      "description": "Upgrades cutter_board with sparkle effect",
+      "group": "Blocks & Items",
+      "category": "MISC"
+    }
+  }
+}

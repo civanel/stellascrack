@@ -1,0 +1,88 @@
+{
+  "crafting": [
+    {
+      "id": "stellascrack:silver_cutting_board",
+      "name": "Silver Magic Cutting Board ✡",
+      "group": "Blocks & Items",
+      "input_slots": [
+        {"item_id": "minecraft:oak_planks"},
+        {"item_id": "minecraft:silver_block"},
+        {"item_id": "minecraft:oak_planks"},
+        {"item_id": "minecraft:glass_pane"}
+      ],
+      "output_slot": {"item_id": "stellascrack:cutter_board", "count": 1}
+    },
+    {
+      "id": "stellascrack:crystal_pot_deluxe",
+      "name": "Crystal Pot Deluxe ✡",
+      "group": "Blocks & Items",
+      "input_slots": [
+        {"item_id": "minecraft:glass"},
+        {"item_id": "minecraft:quartz_block"},
+        {"item_id": "minecraft:amethyst_shard"},
+        {"item_id": "minecraft:diamond_block"}
+      ],
+      "output_slot": {"item_id": "stellascrack:crystal_pot_deluxe", "count": 1}
+    },
+    {
+      "id": "stellascrack:magic_oven",
+      "name": "Magic Elixir Oven ✡",
+      "group": "Blocks & Items",
+      "input_slots": [
+        {"item_id": "minecraft:cobblestone"},
+        {"item_id": "minecraft:lapis_lazuli"},
+        {"item_id": "minecraft:redstone"},
+        {"item_id": "minecraft:end_rod"}
+      ],
+      "output_slot": {"item_id": "stellascrack:magic_oven", "count": 1}
+    },
+    {
+      "id": "stellascrack:strawberry_pie",
+      "name": "Magical Strawberry Pie ✡🍰",
+      "group": "Blocks & Items",
+      "input_slots": [
+        {"item_id": "minecraft:pumpkin"},
+        {"item_id": "minecraft:strawberry"},
+        {"item_id": "minecraft:sugar"},
+        {"item_id": "minecraft:glow_berries"}
+      ],
+      "output_slot": {"item_id": "stellascrack:strawberry_pie", "count": 1}
+    },
+    {
+      "id": "stellascrack:sage_meat",
+      "name": "Sage Wisdom Meat ✡🍖",
+      "group": "Blocks & Items",
+      "input_slots": [
+        {"item_id": "minecraft:porkchop"},
+        {"item_id": "minecraft:sage"},
+        {"item_id": "minecraft:red_berry"},
+        {"item_id": "minecraft:glow_berries"}
+      ],
+      "output_slot": {"item_id": "stellascrack:sage_meat", "count": 1}
+    },
+    {
+      "id": "stellascrack:crystal_soup",
+      "name": "Crystal Healing Soup ✡🍲",
+      "group": "Blocks & Items",
+      "input_slots": [
+        {"item_id": "minecraft:bowl"},
+        {"item_id": "minecraft:water_bucket"},
+        {"item_id": "minecraft:sage"},
+        {"item_id": "minecraft:end_crystal"}
+      ],
+      "output_slot": {"item_id": "stellascrack:crystal_soup", "count": 1}
+    },
+    {
+      "id": "stellascrack:silver_upgrade",
+      "name": "Silver Board Upgrade ✡",
+      "group": "Blocks & Items",
+      "input_slots": [
+        {"item_id": "stellascrack:cutter_board"},
+        {"item_id": "minecraft:iron_ingot"},
+        {"item_id": "minecraft:diamond"},
+        {"item_id": "minecraft:silver_ingot"}
+      ],
+      "output_slot": {"item_id": "stellascrack:silver_upgrade", "count": 1}
+    }
+  ]
+}

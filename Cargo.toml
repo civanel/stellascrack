@@ -9,9 +9,8 @@ description = "Stella's Crack Food - A magical farming mod with biome-based cook
 [lib]
 path = "mixins/stellascrack_food/runtime.rs"
 
-[[bin]]
-name = "stellascrack-food-content"
-path = "mixins/stellascrack_content/mod.rs"
+# stellascrack-content is a separate .hnmod data-only module
+# Do not compile it as a binary here
 
 [workspace]
 members = ["tools/audit"]

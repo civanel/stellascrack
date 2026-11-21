@@ -1,3 +1,37 @@
-/target/
-__pycache__/
-*.pyc
+# Rust build artifacts
+target/
+Cargo.lock
+
+# Binaries - never commit these
+horizon*
+client*
+*.bin
+mixins/stellascrack_content/mod.rs
+
+# Old injector files (use JSON instead)
+mixins/stellascrack_content/data/*_injector.rs
+
+# Data and assets from player/resources (never modify these)
+mixins/*/data/*.json
+mixins/*/assets/*
+# Mixin data files
+mixins/stellascrack_content/data/
+mixins/stellascrack_food/data/
+
+# Windows-specific
+*.exe
+*.dll
+*.pdb
+Debug/
+Release/
+
+# Editor configs
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db

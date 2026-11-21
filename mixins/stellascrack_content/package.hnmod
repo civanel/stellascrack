@@ -1,0 +1,15 @@
+# Stella's Crack Food - Content Module (.hnmod)
+# This is a data-only mod containing recipes, advancements and items.
+
+[mod]
+id = "stellascrack-content"
+version = "0.1.0"
+display_name = "Stella's Crack Food (Content)"
+
+[injections]
+"stellascrack:recipe_injector" = { path = "data/recipes.json", type = "inject" }
+"stellascrack:creative_injector" = { path = "data/items.json", type = "inject" }
+"stellascrack:advancement_injector" = { path = "data/advancements.json", type = "inject" }
+
+[compatibility]
+horizon_revision = "a9a30a3b6e3c246747748572e7b10c5fc6b9dc5e"
