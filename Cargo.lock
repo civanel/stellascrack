@@ -3,10 +3,6 @@
 version = 4
 
 [[package]]
-name = "horizon-example-mod"
-version = "0.1.0"
-
-[[package]]
 name = "itoa"
 version = "1.0.18"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -97,6 +93,10 @@ dependencies = [
  "serde_core",
  "zmij",
 ]
+
+[[package]]
+name = "stellascrack-food"
+version = "0.1.0"
 
 [[package]]
 name = "syn"

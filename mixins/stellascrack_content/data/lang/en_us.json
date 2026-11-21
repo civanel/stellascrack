@@ -1,0 +1,52 @@
+{
+  "item": {
+    "stellascrack:cutting_board": "Stella's Cutting Board",
+    "stellascrack:silver_cutting_board": "Silver Cutting Board",
+    "stellascrack:crystal_pot": "Crystal Cooking Pot",
+    "stellascrack:crystal_pot_deluxe": "Deluxe Crystal Pot",
+    "stellascrack:magic_oven": "Magic Oven",
+    "stellascrack:strawberry_hedge": "Strawberry Hedge Block",
+    "stellascrack:sage_hedge": "Sage Garden Block",
+    "stellascrack:strawberry_pie": "Magical Strawberry Pie",
+    "stellascrack:sage_meat": "Wisdom Sage Meat",
+    "stellascrack:crystal_soup": "Crystal Soup Elixir",
+    "stellascrack:magic_crystal": "Magic Crystal Shard",
+    "stellascrack:silver_ingot": "Silver Ingot"
+  },
+  "effect": {
+    "stellascrack:strawberry_boost": "Strawberry Sparkles",
+    "stellascrack:sage_wisdom": "Sage Wisdom",
+    "stellascrack:magic_energy": "Magic Energy Shield",
+    "stellascrack:couch_potato": "Couch Potato Fatigue"
+  },
+  "block": {
+    "stellascrack:cutting_board": "Stella's Cutting Board - Craft magical foods here!",
+    "stellascrack:silver_cutting_board": "Silver Cutting Board - Enhanced durability and speed",
+    "stellascrack:crystal_pot": "Crystal Pot - Special recipes with sparkles",
+    "stellascrack:crystal_pot_deluxe": "Deluxe Crystal Pot - Maximum efficiency",
+    "stellascrack:magic_oven": "Magic Oven - Cook elixirs and potions",
+    "stellascrack:strawberry_hedge": "Strawberry Hedge - Magical strawberry field decoration",
+    "stellascrack:sage_hedge": "Sage Hedge - Healing sage garden decoration"
+  },
+  "biome": {
+    "stellascrack:strawberry_fields": "Strawberry Fields - A magical field of glowing strawberry plants that boost food effects by 50%",
+    "stellascrack:sage_garden": "Sage Garden - A peaceful garden where sage wisdom increases cooking efficiency"
+  },
+  "advancement": {
+    "first_cutting_board": {
+      "title": "First Cutting Board",
+      "description": "Craft your first stellascrack cutting board",
+      "icon": "stellascrack:silver_cutting_board"
+    },
+    "first_food": {
+      "title": "First Bite",
+      "description": "Cook and eat your first magical meal",
+      "icon": "stellascrack:strawberry_pie"
+    },
+    "master_cook": {
+      "title": "Master Cook",
+      "description": "Cook all magical dishes in the stellascrack kitchen",
+      "icon": "stellascrack:crystal_pot_deluxe"
+    }
+  }
+}
