@@ -1,42 +1,8 @@
-[mod]
-id = "stellascrack_content"
-version = "1.0.0"
+# Stella's Crack Food - Content Module (.hnmod)
+# This module registers recipes, advancements and items
 
-[compatibility]
-horizon_revision = "a9a30a3b6e3c246747748572e7b10c5fc6b9dc5e"
-
-# Добавляем рецепты для всех блоков и предметов
-[[injection]]
-id = "register-crafting-recipes"
-hook = "crafting_recipes"
-hook_version = 1
-kind = "HEAD"
-helper = "data/recipe_injector.rs"
-bindings = [{ name = "recipes", ty = "&mut Vec<Recipe>", value = "recipes" }]
-
-# Добавляем достижения
-[[injection]]
-id = "register-advancements"
-hook = "advancement_trees"  
-hook_version = 1
-kind = "HEAD"
-helper = "data/advancement_injector.rs"
-bindings = [{ name = "advancements", ty = "&mut Vec<Advancement>", value = "advancements" }]
-
-# Добавляем предметы в творческий режим (чтобы быть в E tab!)
-[[injection]]
-id = "register-creative-items"
-hook = "creative_registry"
-hook_version = 1
-kind = "HEAD"
-helper = "data/creative_injector.rs"
-bindings = [{ name = "items", ty = "&mut Vec<Item>", value = "items" }]
-
-# Добавляем боссы и спавнеры (если нужно)
-[[injection]]
-id = "register-bosses"
-hook = "boss_trees"
-hook_version = 1
-kind = "HEAD"
-helper = "data/boss_injector.rs"
-bindings = [{ name = "bosses", ty = "&mut Vec<Boss>", value = "bosses" }]
+[injections]
+"stellascrack:recipe_injector" = { path = "data/recipe_injector.rs", type = "inject" }
+"stellascrack:creative_injector" = { path = "data/creative_injector.rs", type = "inject" }
+"stellascrack:advancement_injector" = { path = "data/advancement_injector.rs", type = "inject" }
+"stellascrack:boss_injector" = { path = "data/boss_injector.rs", type = "inject" }

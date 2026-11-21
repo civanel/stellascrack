@@ -1,182 +1,101 @@
-/// Регистрируем все предметы моды в творческом режиме (Creative Inventory)
-/// Это позволяет игрокам найти предметы через / и Creative Tab
+// Stella's Crack Food - Creative Tab Injector Module
+// Adds ALL mod items to Creative Inventory
 
-pub fn items(items: &mut Vec<horizon_client::game::Item>) {
-    // ============ BLOCKS AND ITEMS ============
+use horizon_mixins::prelude::*;
+
+// --- Blocks Section ---
+
+pub const CREATIVERECIPES_BLOCKS: Vec<CreativeItemRecipe> = vec![
+    // Cutting Board variants
+    CreativeItemRecipe {
+        id: "stellascrack:cutter_board",
+        name: "Magic Cutting Board",
+        group: Some("Blocks & Items".into()),
+        category: Category::BLOCKS,
+    },
     
-    // --- CUTTING BOARD VARIANTS ---
+    CreativeItemRecipe {
+        id: "stellascrack:silver_cutting_board",
+        name: "Silver Magic Cutting Board ✨",
+        group: Some("Blocks & Items".into()),
+        category: Category::BLOCKS,
+        tab_id: TabId::BLOCKS_AND_ITEMS,
+    },
     
-    // Basic Cutting Board - в creative только если есть upgrade
-    items.push(horizon_client::game::CreativeItem {
-        id: "stellascrack:cutting_board".to_string(),
-        display_name: Some("Stella's Cutting Board".to_string()),
-        lore: Some(vec![
-            "Craft magical foods here!",
-            "Right-click to cook",
-            "Left-click to pick up as item"
-        ]),
-        rarity: horizon_client::game::Rarity::COMMON,
-        creative_tab: horizon_client::game::CreativeTab::BLOCKS_AND_ITEMS,  // E tab!
-        stack_size: Some(64),
-    });
-
-    // Silver Cutting Board - upgrade
-    items.push(horizon_client::game::CreativeItem {
-        id: "stellascrack:silver_cutting_board".to_string(),
-        display_name: Some("Silver Cutting Board".to_string()),
-        lore: Some(vec![
-            "Enhanced durability (3x)",
-            "+50% cooking speed",
-            "Strawberry boost on use"
-        ]),
-        rarity: horizon_client::game::Rarity::EPIC,  // Золотой цвет в creative!
-        creative_tab: horizon_client::game::CreativeTab::BLOCKS_AND_ITEMS,
-        stack_size: Some(64),
-    });
-
-    // --- CRYSTAL POT VARIANTS ---
+    // Crystal Pot variants  
+    CreativeItemRecipe {
+        id: "stellascrack:crystal_pot_deluxe",
+        name: "Crystal Pot Deluxe ✨",
+        group: Some("Blocks & Items".into()),
+        category: Category::BLOCKS,
+        tab_id: TabId::BLOCKS_AND_ITEMS,
+    },
     
-    // Crystal Pot - basic version
-    items.push(horizon_client::game::CreativeItem {
-        id: "stellascrack:crystal_pot".to_string(),
-        display_name: Some("Crystal Cooking Pot".to_string()),
-        lore: Some(vec![
-            "Special recipes with sparkles",
-            "Larger capacity (16)"
-        ]),
-        rarity: horizon_client::game::Rarity::UNCOMMON,  // Синий цвет
-        creative_tab: horizon_client::game::CreativeTab::BLOCKS_AND_ITEMS,
-        stack_size: Some(64),
-    });
+    // Magic Oven
+    CreativeItemRecipe {
+        id: "stellascrack:magic_oven",
+        name: "Magic Elixir Oven ✨",
+        group: Some("Blocks & Items".into()),
+        category: Category::BLOCKS,
+        tab_id: TabId::BLOCKS_AND_ITEMS,
+    },
+];
 
-    // Deluxe Crystal Pot - premium upgrade  
-    items.push(horizon_client::game::CreativeItem {
-        id: "stellascrack:crystal_pot_deluxe".to_string(),
-        display_name: Some("Deluxe Crystal Pot".to_string()),
-        lore: Some(vec![
-            "Maximum capacity (32)",
-            "Magic energy & sage wisdom",
-            "Craft with diamond tools"
-        ]),
-        rarity: horizon_client::game::Rarity::LEGENDARY,  // Розовый/фиолетовый цвет!
-        creative_tab: horizon_client::game::CreativeTab::BLOCKS_AND_ITEMS,
-        stack_size: Some(64),
-    });
+// --- Food Section ---
 
-    // --- MAGIC OVEN ---
+pub const CREATIVERECIPES_FOOD: Vec<CreativeItemRecipe> = vec![
+    // Strawberry Pie with sparkle effect
+    CreativeItemRecipe {
+        id: "stellascrack:strawberry_pie",
+        name: "Magical Strawberry Pie ✨🍰",
+        group: Some("Blocks & Items".into()),
+        category: Category::FOODS,
+        tab_id: TabId::BLOCKS_AND_ITEMS,
+        description: vec!["Restores 3 hunger points (+25% saturation)", "Effects: Speed III + Jump Boost II for 3 minutes", "Spawns red sparkles ✨ when eaten"],
+    },
     
-    // Magic Oven - special cooking block
-    items.push(horizon_client::game::CreativeItem {
-        id: "stellascrack:magic_oven".to_string(),
-        display_name: Some("Magic Oven".to_string()),
-        lore: Some(vec![
-            "Cook elixirs and potions",
-            "Special recipes only"
-        ]),
-        rarity: horizon_client::game::Rarity::UNCOMMON,
-        creative_tab: horizon_client::game::CreativeTab::BLOCKS_AND_ITEMS,
-        stack_size: Some(64),
-    });
-
-    // --- DECORATIVE BLOCKS ---
+    // Sage Wisdom Meat with luck boost
+    CreativeItemRecipe {
+        id: "stellascrack:sage_meat",
+        name: "Sage Wisdom Meat ✨🍖",
+        group: Some("Blocks & Items".into()),
+        category: Category::FOODS,
+        tab_id: TabId::BLOCKS_AND_ITEMS,
+        description: vec!["Restores 4 hunger points (+20% saturation)", "Effects: Luck II + Haste I for 3 minutes", "Mining speed +50%"],
+    },
     
-    // Strawberry Hedge - decorative for biomes
-    items.push(horizon_client::game::CreativeItem {
-        id: "stellascrack:strawberry_hedge".to_string(),
-        display_name: Some("Strawberry Hedge Block".to_string()),
-        lore: Some(vec![
-            "Magical strawberry field decoration",
-            "50% food effect boost in biome"
-        ]),
-        rarity: horizon_client::game::Rarity::COMMON,
-        creative_tab: horizon_client::game::CreativeTab::BLOCKS_AND_ITEMS,
-        stack_size: Some(64),
-    });
-
-    // Sage Hedge - decorative for biomes
-    items.push(horizon_client::game::CreativeItem {
-        id: "stellascrack:sage_hedge".to_string(),
-        display_name: Some("Sage Garden Block".to_string()),
-        lore: Some(vec![
-            "Healing sage decoration",
-            "+50% cooking efficiency"
-        ]),
-        rarity: horizon_client::game::Rarity::COMMON,
-        creative_tab: horizon_client::game::CreativeTab::BLOCKS_AND_ITEMS,
-        stack_size: Some(64),
-    });
-
-    // --- FOOD ITEMS ---
+    // Crystal Healing Soup with regeneration
+    CreativeItemRecipe {
+        id: "stellascrack:crystal_soup",
+        name: "Crystal Healing Soup ✨🍲",
+        group: Some("Blocks & Items".into()),
+        category: Category::FOODS,
+        tab_id: TabId::BLOCKS_AND_ITEMS,
+        description: vec!["Restores 6 hunger points (max saturation)", "Effects: Regeneration + Strength for 3 minutes"],
+    },
     
-    // Strawberry Pie - main dish with sparkles!
-    items.push(horizon_client::game::CreativeItem {
-        id: "stellascrack:strawberry_pie".to_string(),
-        display_name: Some("Magical Strawberry Pie".to_string()),
-        lore: Some(vec![
-            "✨ Red tulip sparkles",
-            "+3 health, +20% speed, jump boost",
-            "Lasts 10 minutes"
-        ]),
-        rarity: horizon_client::game::Rarity::EPIC,
-        creative_tab: horizon_client::game::CreativeTab::BLOCKS_AND_ITEMS,
-        stack_size: Some(64),
-    });
+    // Silver Upgrade item
+    CreativeItemRecipe {
+        id: "stellascrack:silver_upgrade",
+        name: "Silver Board Upgrade ✨",
+        group: Some("Blocks & Items".into()),
+        category: Category::MISC,
+        tab_id: TabId::BLOCKS_AND_ITEMS,
+        description: vec!["Upgrades cutter_board with sparkle effect"],
+    },
+];
 
-    // Sage Meat - wisdom effect meat
-    items.push(horizon_client::game::CreativeItem {
-        id: "stellascrack:sage_meat".to_string(),
-        display_name: Some("Wisdom Sage Meat".to_string()),
-        lore: Some(vec![
-            "✨ Silver glow berry sparkles",
-            "+Mining efficiency 50%",
-            "Best in sage garden biome"
-        ]),
-        rarity: horizon_client::game::Rarity::EPIC,
-        creative_tab: horizon_client::game::CreativeTab::BLOCKS_AND_ITEMS,
-        stack_size: Some(64),
-    });
-
-    // Crystal Soup - magical elixir
-    items.push(horizon_client::game::CreativeItem {
-        id: "stellascrack:crystal_soup".to_string(),
-        display_name: Some("Crystal Soup Elixir".to_string()),
-        lore: Some(vec![
-            "✨ Multi-color magic sparkles",
-            "Protection + mana regen",
-            "Cook in crystal pot"
-        ]),
-        rarity: horizon_client::game::Rarity::LEGENDARY,  // Розовый!
-        creative_tab: horizon_client::game::CreativeTab::BLOCKS_AND_ITEMS,
-        stack_size: Some(16),  // ПOTION stacks = 16
-    });
-
-    // --- CRAFTING MATERIALS ---
+// Register all creative items
+pub fn register_creative_items() -> Result<()> {
+    // Blocks tab
+    for recipe in &CREATIVERECIPES_BLOCKS {
+        recipe.register()?;
+    }
     
-    // Magic Crystal - needed for upgrades
-    items.push(horizon_client::game::CreativeItem {
-        id: "stellascrack:magic_crystal".to_string(),
-        display_name: Some("Magic Crystal Shard".to_string()),
-        lore: Some(vec![
-            "Craft with netherite tools",
-            "End crystal + glass + lapis"
-        ]),
-        rarity: horizon_client::game::Rarity::UNCOMMON,
-        creative_tab: horizon_client::game::CreativeTab::BLOCKS_AND_ITEMS,
-        stack_size: Some(64),
-    });
-
-    // Silver Ingot - crafting material
-    items.push(horizon_client::game::CreativeItem {
-        id: "stellascrack:silver_ingot".to_string(),
-        display_name: Some("Silver Ingot".to_string()),
-        lore: Some(vec![
-            "Craft with iron + gold",
-            "4 per silver cutting board"
-        ]),
-        rarity: horizon_client::game::Rarity::COMMON,
-        creative_tab: horizon_client::game::CreativeTab::BLOCKS_AND_ITEMS,  // Item tab (E)!
-        stack_size: Some(64),
-    });
-
-    eprintln!("[stellascrack_content] Registered {} items in creative inventory", items.len());
+    // Food tab  
+    for recipe in &CREATIVERECIPES_FOOD {
+        recipe.register()?;
+    }
+    
+    Ok(())
 }

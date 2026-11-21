@@ -1,221 +1,122 @@
-use horizon_client::game::Recipe;
-use horizon_mods::world::BlockId;
+// Stella's Crack Food - Recipe Injector Module
+// Adds all crafting recipes for the mod items
 
-/// Рецепты крафта для всех предметов моды
-pub fn recipes(recipes: &mut Vec<Recipe>) {
-    // ============ CUTTING BOARD RECIPES ============
+use horizon_mixins::prelude::*;
+
+// --- Silver Cutting Board Recipes ---
+
+pub const CUTTING_BOARD_RECIPE: CraftingRecipe = CraftingRecipe {
+    id: "stellascrack:silver_cutting_board",
+    name: "Silver Magic Cutting Board",
+    group: Some("Blocks & Items".into()),
+    input_slots: vec![
+        CraftInputSlot::new(0, "minecraft:oak_planks"),
+        CraftInputSlot::new(1, "minecraft:silver_block"), // Silver block if available
+        CraftInputSlot::new(2, "minecraft:oak_planks"),
+        CraftInputSlot::new(3, "minecraft:glass_pane"),
+    ],
+    output_slot: OutputSlot { item_id: "stellascrack:cutter_board", count: 1 },
+};
+
+// --- Crystal Pot Deluxe Recipes ---
+
+pub const CRYSTAL_POT_RECIPE: CraftingRecipe = CraftingRecipe {
+    id: "stellascrack:crystal_pot_deluxe",
+    name: "Crystal Pot Deluxe",
+    group: Some("Blocks & Items".into()),
+    input_slots: vec![
+        CraftInputSlot::new(0, "minecraft:glass"),
+        CraftInputSlot::new(1, "minecraft:quartz_block"),
+        CraftInputSlot::new(2, "minecraft:amethyst_shard"),
+        CraftInputSlot::new(3, "minecraft:diamond_block"),
+    ],
+    output_slot: OutputSlot { item_id: "stellascrack:crystal_pot_deluxe", count: 1 },
+};
+
+// --- Magic Oven Recipes ---
+
+pub const MAGIC_OVEN_RECIPE: CraftingRecipe = CraftingRecipe {
+    id: "stellascrack:magic_oven",
+    name: "Magic Elixir Oven",
+    group: Some("Blocks & Items".into()),
+    input_slots: vec![
+        CraftInputSlot::new(0, "minecraft:cobblestone"),
+        CraftInputSlot::new(1, "minecraft:lapis_lazuli"),
+        CraftInputSlot::new(2, "minecraft:redstone"),
+        CraftInputSlot::new(3, "minecraft:end_rod"),
+    ],
+    output_slot: OutputSlot { item_id: "stellascrack:magic_oven", count: 1 },
+};
+
+// --- Strawberry Pie Recipe ---
+
+pub const STRAWBERRY_PIE_RECIPE: CraftingRecipe = CraftingRecipe {
+    id: "stellascrack:strawberry_pie",
+    name: "Magical Strawberry Pie ✨",
+    group: Some("Blocks & Items".into()),
+    input_slots: vec![
+        CraftInputSlot::new(0, "minecraft:pumpkin"), // Pumpkin pie base
+        CraftInputSlot::new(1, "minecraft:strawberry"),
+        CraftInputSlot::new(2, "minecraft:sugar"),
+        CraftInputSlot::new(3, "minecraft:glow_berries"),
+    ],
+    output_slot: OutputSlot { item_id: "stellascrack:strawberry_pie", count: 1 },
+};
+
+// --- Sage Wisdom Meat Recipe ---
+
+pub const SAGE_MEAT_RECIPE: CraftingRecipe = CraftingRecipe {
+    id: "stellascrack:sage_meat",
+    name: "Sage Wisdom Meat ✨",
+    group: Some("Blocks & Items".into()),
+    input_slots: vec![
+        CraftInputSlot::new(0, "minecraft:porkchop"),
+        CraftInputSlot::new(1, "minecraft:sage"), // Custom herb item
+        CraftInputSlot::new(2, "minecraft:red_berry"),
+        CraftInputSlot::new(3, "minecraft:glow_berries"),
+    ],
+    output_slot: OutputSlot { item_id: "stellascrack:sage_meat", count: 1 },
+};
+
+// --- Crystal Healing Soup Recipe ---
+
+pub const CRYSTAL_SOUP_RECIPE: CraftingRecipe = CraftingRecipe {
+    id: "stellascrack:crystal_soup",
+    name: "Crystal Healing Soup ✨",
+    group: Some("Blocks & Items".into()),
+    input_slots: vec![
+        CraftInputSlot::new(0, "minecraft:bowl"), // Or mushroom stew
+        CraftInputSlot::new(1, "minecraft:water_bucket"),
+        CraftInputSlot::new(2, "minecraft:sage"),
+        CraftInputSlot::new(3, "minecraft:end_crystal"),
+    ],
+    output_slot: OutputSlot { item_id: "stellascrack:crystal_soup", count: 1 },
+};
+
+// --- Silver Upgrade Recipe ---
+
+pub const SILVER_UPGRADE_RECIPE: CraftingRecipe = CraftingRecipe {
+    id: "stellascrack:silver_upgrade",
+    name: "Silver Board Upgrade ✨",
+    group: Some("Blocks & Items".into()),
+    input_slots: vec![
+        CraftInputSlot::new(0, "stellascrack:cutter_board"),
+        CraftInputSlot::new(1, "minecraft:iron_ingot"),
+        CraftInputSlot::new(2, "minecraft:diamond"),
+        CraftInputSlot::new(3, "minecraft:silver_ingot"), // Custom item
+    ],
+    output_slot: OutputSlot { item_id: "stellascrack:silver_upgrade", count: 1 },
+};
+
+// Register all recipes
+pub fn register_recipes() -> Result<()> {
+    CUTTING_BOARD_RECIPE.register()?;
+    CRYSTAL_POT_RECIPE.register()?;
+    MAGIC_OVEN_RECIPE.register()?;
+    STRAWBERRY_PIE_RECIPE.register()?;
+    SAGE_MEAT_RECIPE.register()?;
+    CRYSTAL_SOUP_RECIPE.register()?;
+    SILVER_UPGRADE_RECIPE.register()?;
     
-    // Basic Cutting Board
-    recipes.push(Recipe {
-        id: "stellascrack:cutting_board".to_string(),
-        type_: RecipeType::crafting_table,
-        pattern: vec![
-            "###".to_string(),  // Row 1 - 3 oak logs
-            "# #".to_string(),  // Row 2 - gap
-            "# #".to_string(),  // Row 2 - gap
-        ],
-        result_item: Item {
-            id: "stellascrack:cutting_board".to_string(),
-            count: 1,
-        },
-        required_tools: None,
-    });
-
-    // Silver Cutting Board (Upgrade)
-    recipes.push(Recipe {
-        id: "stellascrack:silver_cutting_board".to_string(),
-        type_: RecipeType::crafting_table,
-        pattern: vec![
-            " D ".to_string(),  // Diamond
-            " SSS ".to_string(),  // Silver ingots
-            " SSS ".to_string(),
-            " NNN ".to_string(),  // Netherite scrap
-            " C C ".to_string(),  // Magic crystals
-        ],
-        result_item: Item {
-            id: "stellascrack:silver_cutting_board".to_string(),
-            count: 1,
-        },
-        required_tools: Some(ItemId::new("minecraft:netherite_pickaxe")),
-    });
-
-    // ============ CRYSTAL POT RECIPES ============
-    
-    // Basic Crystal Pot
-    recipes.push(Recipe {
-        id: "stellascrack:crystal_pot".to_string(),
-        type_: RecipeType::crafting_table,
-        pattern: vec![
-            "GGG".to_string(),  // Glass
-            "G T G ".to_string(),  // Top glass with crystal
-            "GCG".to_string(),  // Bottom glass with cobble
-        ],
-        result_item: Item {
-            id: "stellascrack:crystal_pot".to_string(),
-            count: 1,
-        },
-        required_tools: None,
-    });
-
-    // Deluxe Crystal Pot (Upgrade)
-    recipes.push(Recipe {
-        id: "stellascrack:crystal_pot_deluxe".to_string(),
-        type_: RecipeType::crafting_table,
-        pattern: vec![
-            " D ".to_string(),  // Diamond
-            " CCC ".to_string(),  // Crystal blocks
-            " LLL ".to_string(),  // Lapis lazuli
-        ],
-        result_item: Item {
-            id: "stellascrack:crystal_pot_deluxe".to_string(),
-            count: 1,
-        },
-        required_tools: Some(ItemId::new("minecraft:diamond_pickaxe")),
-    });
-
-    // ============ MAGIC OVEN RECIPES ============
-    
-    // Magic Oven
-    recipes.push(Recipe {
-        id: "stellascrack:magic_oven".to_string(),
-        type_: RecipeType::crafting_table,
-        pattern: vec![
-            "###".to_string(),  // Nether bricks
-            "#M#".to_string(),  // Middle with magic crystal
-            "###".to_string(),
-        ],
-        result_item: Item {
-            id: "stellascrack:magic_oven".to_string(),
-            count: 1,
-        },
-        required_tools: None,
-    });
-
-    // ============ STRAWBERRY PLANT RECIPES ============
-    
-    // Strawberry Hedge (decorative block)
-    recipes.push(Recipe {
-        id: "stellascrack:strawberry_hedge".to_string(),
-        type_: RecipeType::crafting_table,
-        pattern: vec![
-            "SSS".to_string(),  // Redstone + strawberries
-            "RRR".to_string(),  // Redstone again
-            "SRS".to_string(),  // Mix for magic effect
-        ],
-        result_item: Item {
-            id: "stellascrack:strawberry_hedge".to_string(),
-            count: 4,
-        },
-        required_tools: None,
-    });
-
-    // Sage Hedge (decorative block)
-    recipes.push(Recipe {
-        id: "stellascrack:sage_hedge".to_string(),
-        type_: RecipeType::crafting_table,
-        pattern: vec![
-            "SAG".to_string(),  // Sapling + sage
-            "SA G".to_string(),  // Mix with gap
-            "SGA".to_string(),  // Staggered pattern
-        ],
-        result_item: Item {
-            id: "stellascrack:sage_hedge".to_string(),
-            count: 4,
-        },
-        required_tools: None,
-    });
-
-    // ============ FOOD ITEMS RECIPES ============
-    
-    // Strawberry Pie
-    recipes.push(Recipe {
-        id: "stellascrack:strawberry_pie".to_string(),
-        type_: RecipeType::cutting_board,  // Requires cutting board
-        pattern: vec![
-            "B P B".to_string(),  // Bottom with strawberries on top
-            "S S S".to_string(),  // Strawberries
-            "B C B".to_string(),  // Bottom with cream in middle
-        ],
-        result_item: Item {
-            id: "stellascrack:strawberry_pie".to_string(),
-            count: 1,
-        },
-        required_tools: Some(ItemId::new("minecraft:shears")),
-    });
-
-    // Sage Meat (cooked with sage)
-    recipes.push(Recipe {
-        id: "stellascrack:sage_meat".to_string(),
-        type_: RecipeType::cutting_board,
-        pattern: vec![
-            "S M S".to_string(),  // Sage on meat
-            "M T M".to_string(),  // Meat with torch (cooked)
-            "S M S".to_string(),
-        ],
-        result_item: Item {
-            id: "stellascrack:sage_meat".to_string(),
-            count: 1,
-        },
-        required_tools: Some(ItemId::new("minecraft:copper_axe")),
-    });
-
-    // Crystal Soup (in crystal pot)
-    recipes.push(Recipe {
-        id: "stellascrack:crystal_soup".to_string(),
-        type_: RecipeType::special,  // Special cooking in crystal pot
-        pattern: vec![
-            "C B C".to_string(),  // Crystal pot with water/broth
-            "C W C".to_string(),  // With ingredients
-            "C M C".to_string(),  // Magic crystals for effect
-        ],
-        result_item: Item {
-            id: "stellascrack:crystal_soup".to_string(),
-            count: 1,
-        },
-        required_tools: Some(ItemId::new("minecraft:magic_wand")),
-    });
-
-    // ============ CRAFTING TABLES FOR SPECIAL ITEMS ============
-    
-    // Magic Crystal (needed for upgrades)
-    recipes.push(Recipe {
-        id: "stellascrack:magic_crystal".to_string(),
-        type_: RecipeType::crafting_table,
-        pattern: vec![
-            "E E E ".to_string(),  // End crystals
-            "E G E".to_string(),  // Glass in middle
-            "E L E".to_string(),  // Lapis for magic color
-        ],
-        result_item: Item {
-            id: "stellascrack:magic_crystal".to_string(),
-            count: 1,
-        },
-        required_tools: Some(ItemId::new("minecraft:netherite_sword")),
-    });
-
-    // Silver Ingot (needed for upgrades)
-    recipes.push(Recipe {
-        id: "stellascrack:silver_ingot".to_string(),
-        type_: RecipeType::crafting_table,
-        pattern: vec![
-            "III".to_string(),  // Iron ingots
-            "I I".to_string(),  // Center piece
-            "G G ".to_string(),  // Gold for color
-        ],
-        result_item: Item {
-            id: "stellascrack:silver_ingot".to_string(),
-            count: 1,
-        },
-        required_tools: None,
-    });
-
-    eprintln!("[stellascrack_content] Registered {} recipes", recipes.len());
-}
-
-/// Типы рецептов
-#[derive(Debug, Clone)]
-enum RecipeType {
-    CraftingTable,  // Стандартный крафт-стол
-    CuttingBoard,   // Крафт на cutting board (только с модными блоками)
-    Special,        // Специальный рецепт (например, в magic oven или crystal pot)
+    Ok(())
 }

@@ -1,7 +1,20 @@
-/// Боссы и особые враги для моды (опционально)
+// Stella's Crack Food - Boss Injector Module
+// Adds boss data (placeholder for future expansion)
 
-pub fn bosses(bosses: &mut Vec<horizon_client::game::Boss>) {
-    //目前没有特别添加 Boss, 可以留空或扩展
-    
-    eprintln!("[stellascrack_content] Registered {} bosses", bosses.len());
+use horizon_mixins::prelude::*;
+
+pub const BOSSES: Vec<CreativeItemRecipe> = vec![
+    // Future boss: Crystal Guardian (drops crystal items)
+    CreativeItemRecipe {
+        id: "stellascrack:crystal_guardian",
+        name: "Crystal Guardian Boss ✨👹",
+        group: Some("Bosses".into()),
+        category: Category::BOSS,
+        tab_id: TabId::BLOCKS_AND_ITEMS,
+        description: vec!["Spawned by placing 9 Crystal Pot Deluxes in circle"],
+    },
+];
+
+pub fn register_bosses() -> Result<()> {
+    Ok(())
 }
