@@ -1,8 +1,0 @@
-# Stella's Crack Food - Content Module (.hnmod)
-# This module registers recipes, advancements and items
-
-[injections]
-"stellascrack:recipe_injector" = { path = "data/recipe_injector.rs", type = "inject" }
-"stellascrack:creative_injector" = { path = "data/creative_injector.rs", type = "inject" }
-"stellascrack:advancement_injector" = { path = "data/advancement_injector.rs", type = "inject" }
-"stellascrack:boss_injector" = { path = "data/boss_injector.rs", type = "inject" }
